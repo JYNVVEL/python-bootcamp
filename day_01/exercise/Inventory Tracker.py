@@ -1,7 +1,10 @@
+import json
+from textwrap import indent
+
+
 def create(inventory, item):
     """Add a new item (dict) to the inventory (list[dict])"""
     inventory.append(item)
-
 
 def read(inventory, index):
     """Return the item (dict) in the given index (int) of inventory"""
@@ -9,18 +12,15 @@ def read(inventory, index):
         return inventory[index]
     return None
 
-
 def update(inventory, index, detail_key, detail_value):
     """Change/add the key and value to the given index in inventory"""
     if 0 <= index < len(inventory):
         inventory[index][detail_key] = detail_value
 
-
 def delete(inventory, index):
     """Remove item (dict) in the given index (int) of inventory"""
     if 0 <= index < len(inventory):
         inventory.pop(index)
-
 
 def show(inventory):
     """Print the items and their details line-by-line"""
@@ -29,6 +29,14 @@ def show(inventory):
     for i, item in enumerate(inventory):
         print(f"{i}. {item}")
 
+def save(inventory, filepath):
+    with open(filepath, "w") as file:
+        json.dump(inventory, file, indent=4)
+
+def load(filepath):
+    with open(filepath, "r") as file:
+        data = json.load(file, indent=4)
+        return data
 
 
 def main():
@@ -62,6 +70,14 @@ def main():
 
         elif command == "show":
             show(current_inventory)
+
+        elif command == "save":
+            filepath = input("Enter filepath: ")
+            save(current_inventory, filepath)
+
+        elif command == "load":
+            filepath = input("Enter filepath: ")
+            current_inventory = load(filepath)
 
         else:
             print("Unknown command.")
