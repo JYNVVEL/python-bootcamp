@@ -2,17 +2,17 @@ import json
 
 def add(song, playlist):
     """Add song to playlist"""
-    song.append(playlist)
+    playlist.append(song)
 
 
 def remove(song, playlist):
     """Remove song from playlist (if there)"""
-    song.remove(playlist)
+    playlist.remove(song)
 
 
 def play(playlist):
     """Print the first song in the playlist (if any) and remove"""
-    print(playlist[0])
+    print(playlist)
 
 
 def show_all(playlist):
@@ -27,7 +27,9 @@ def save(playlist, filepath):
 
 def load(filepath):
     """Load a new playlist from filepath and return it"""
-
+    with open(filepath, "r") as file:
+        data = json.load(file)
+        return data
 
 def playlist_app():
     """
@@ -53,11 +55,18 @@ def playlist_app():
         elif user_choice == "show":
             show_all(playlist)
 
-
-
         elif user_choice == "play":
             play_song = input("Enter a song to play: ")
             play(play_song)
+
+        elif user_choice == "save":
+            save_file = input("Where to save: ")
+            save(playlist, save_file)
+
+        elif user_choice == "load":
+            load_file = input("What file to load: ")
+            playlist = load_file
+            load(playlist)
 
         if user_choice == "exit":
             end = True
