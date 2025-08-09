@@ -35,7 +35,7 @@ def save(inventory, filepath):
 
 def load(filepath):
     with open(filepath, "r") as file:
-        data = json.load(file, indent=4)
+        data = json.load(file)
         return data
 
 
