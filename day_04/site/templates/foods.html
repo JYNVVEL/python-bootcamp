@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Food Page</h1>
+    <p>This is my ranking for best food.</p>
+
+    <ol>
+        {% for food in foods %}
+        <li>{{ food }}</li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

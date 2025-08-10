@@ -1,0 +1,16 @@
+nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: right;
+    padding: 1rem;
+    background-color: black;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: lightgray;
+}

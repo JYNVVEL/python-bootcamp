@@ -13,7 +13,6 @@ class Application(tkinter.Tk):
         self.slider_value = tkinter.IntVar(value=0)
         self.create_widget()
 
-
     def create_widget(self):
         name = tkinter.Label(self, text="Name", width=20, height=5)
         name.grid(row=0, column=0)

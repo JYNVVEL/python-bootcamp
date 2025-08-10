@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Skills Page</h1>
+
+    <ul>
+        {% for skill, level in skills.items() %}
+        <li>
+            {{ skill }} - {{ level }}
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

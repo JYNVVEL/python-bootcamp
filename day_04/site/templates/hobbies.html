@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Hobby Page</h1>
+    <p>Here are my favorite activities outside work</p>
+
+    <ul>
+        {% for hobby in hobbies %}
+        <li>Hobby {{loop.index}}: {{ hobby }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
